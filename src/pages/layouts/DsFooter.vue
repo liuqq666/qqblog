@@ -1,0 +1,48 @@
+<!--
+  博客默认底部关于
+-->
+
+<template>
+    <el-divider border-style="double" />
+    <el-footer>
+      <div class="flex justify-space-between mb-4 flex-wrap gap-4">
+      <el-button text="true"  class="el-button">
+      关于
+      </el-button>  
+      </div>
+      <div class="footer">
+      Powered by DoubleStrong
+      </div>
+    </el-footer>
+  </template>
+  
+  <script>
+  
+  export default {
+    setup () {
+      return {
+      }
+    }
+  }
+  </script>
+  
+  <style lang="less">
+  .el-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  }
+
+  </style>
+  
