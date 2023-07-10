@@ -4,9 +4,11 @@
             :src= src
             class="image"
             alt="no show img"
+            :width= "width"
+            :height= "height"
           />
           <div style="padding: 14px">
-            <span>Yummy hamburger</span>
+            <slot name="word"></slot>
             <div class="bottom">
               <el-button text class="button">Operating</el-button>
             </div>
@@ -17,10 +19,11 @@
  
     <script setup>
     import { defineProps } from 'vue';
-
     const props = defineProps({
     src:String,
   })
+    const width = "200";
+    const height = "300";
   </script>
   <style>
   .time {

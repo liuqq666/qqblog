@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 const Timestamp = new Date().getTime()
-
 module.exports = defineConfig({
+  publicPath: '/',
   transpileDependencies: true,
   pages: {
     index: {
@@ -15,23 +15,4 @@ module.exports = defineConfig({
       // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
       title: `DS-Blog`, 
     }},
-
-    configureWebpack: {
-      module: {
-        rules: [
-          {
-            test: /\.(png|jpe?g|gif)$/i,
-            use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  outputPath: 'images',
-                },
-              },
-            ],
-          },
-        ],
-      },
-    },
-    
 })

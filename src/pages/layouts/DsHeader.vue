@@ -11,8 +11,7 @@
     :ellipsis="false"
     @select="handleSelect"
   >
-    <img :src="logo" width="150" height="70" />
-    <img src="@/assets/img/jishu.jpg">
+    <img src="../../../public/static/img/logo.png" width="150" height="70" />
     <div class="flex-grow">
     <el-menu-item index="1" class="menu-item"> 主页 </el-menu-item>
     <el-menu-item index="2">技术</el-menu-item>
@@ -26,8 +25,7 @@
   </template>
   
   <script setup>
-  //import logo from '@/assets/img/logo.png'
-  const logo = require('@/assets/img/logo.png')
+
   </script>
   
   <style lang="less">
