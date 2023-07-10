@@ -1,0 +1,279 @@
+#blog-detail {
+  width: 968px;
+  margin: 0 auto 128px;
+  padding: 0;
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1), -1px -2px 8px #ffffff;
+
+  .skeleton {
+    width: 100%;
+    box-shadow: none;
+    padding: 12px;
+  }
+
+  > div {
+    display: flex;
+    align-items: flex-start;
+
+    .blog-detail-content {
+      width: 0;
+      flex: 1;
+      box-sizing: border-box;
+      padding: 24px;
+      border-left: 1px solid rgba(0, 0, 0, .1);
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .blog-detail-time {
+        margin: 16px 0 16px;
+        font-size: 14px;
+        color: #999;
+        display: flex;
+        align-items: center;
+      }
+
+      .codeView {
+        margin: 52px 0 52px;
+
+        div {
+          h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            padding: 8px;
+            margin: 24px 0 0
+          }
+
+          li, p {
+            code {
+              background: rgba(24, 144, 255, .2) !important;
+              padding: 1px 3px !important;
+              border-radius: 3px !important;
+            }
+          }
+
+          // 文章代码块样式
+          pre {
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 10px;
+            box-shadow: 1px 3px 9px rgba(0, 0, 0, .1),
+              -1px -3px 9px #ffffff;
+            position: relative;
+
+            // 动态添加的顶部栏， 在hljs插件中
+            .code-top-bar {
+              .user-select-not();
+              // 顶栏高度
+              --top-bar-height: 36px;
+              --point-size: 13px;
+              height: var(--top-bar-height);
+              width: 100%;
+              position: absolute;
+              z-index: 4;
+              top: 0;
+              left: 0;
+              display: flex;
+              justify-content: space-between;
+              background: rgba(0, 0, 0, .15);
+
+              div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                &:not(:first-child) {
+                  padding: 0 10px;
+                }
+
+                &:last-child {
+                  color: rgba(253, 188, 64, 1);
+                  font-size: 13px;
+                }
+
+                &:nth-of-type(2) {
+                  font-weight: bold;
+                  color: @color-dark-fontColor;
+                }
+
+                &:first-child {
+                  ul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                      height: var(--point-size);
+                      width: var(--point-size);
+                      margin: calc((var(--top-bar-height) - var(--point-size)) / 2) 0 calc((var(--top-bar-height) - var(--point-size)) / 2) 6px;
+                      border-radius: 50%;
+                      list-style: none;
+
+                      &:nth-of-type(1) {
+                        background: rgba(252, 98, 93, 1);
+                      }
+
+                      &:nth-of-type(2) {
+                        background: rgba(253, 188, 64, 1);
+                      }
+
+                      &:nth-of-type(3) {
+                        background: rgba(53, 205, 75, 1);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            code {
+              font-size: 12px;
+              padding: 56px 20px 20px;
+              line-height: 1.5;
+              max-height: 300px;
+            }
+          }
+
+          table {
+            border: 1px solid #cccccc;
+            table-layout: fixed;
+            width: 100%;
+
+            th, td {
+              padding: 6px 12px;
+              word-break: break-all;
+
+              &:not(:last-of-type) {
+                border-right: 1px solid #cccccc;
+              }
+            }
+
+            thead {
+              tr {
+                border-bottom: 1px solid #cccccc;
+              }
+            }
+
+            tbody {
+              tr:not(:last-of-type) {
+                border-bottom: 1px solid #cccccc;
+              }
+            }
+          }
+
+          .code-hidden {
+            overflow: hidden;
+
+            &:after {
+              content: '';
+              position: absolute;
+              z-index: 2;
+              height: 100%;
+              width: 100%;
+              top: 0;
+              left: 0;
+              cursor: pointer;
+              background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .6) 88%);
+            }
+
+            &:before {
+              content: '点击查看全部';
+              position: absolute;
+              z-index: 3;
+              color: #e89a3c;
+              left: 50%;
+              bottom: 12px;
+              font-size: 12px;
+              cursor: pointer;
+              font-family: 'Microsoft Yahei', 'Microsoft Sans Serif', sans-serif, SF Pro Display, Helvetica Neue, Helvetica, Arial, sans-serif;
+              transform: translate(-50%, 0);
+            }
+          }
+
+          .code-show {
+            overflow: auto;
+            max-height: none;
+
+            &:after {
+              content: '';
+              display: none;
+            }
+
+            &:before {
+              content: '';
+              display: none;
+            }
+          }
+
+          h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+          }
+
+          p {
+            margin: 0 !important;
+            font-size: 1em;
+            padding: 8px;
+            line-height: 1.6;
+
+            code {
+              padding: 2px;
+              border-radius: 4px;
+              background: rgba(200, 200, 200, .2);
+            }
+          }
+
+          a {
+            display: inline-block;
+            margin: 0;
+            padding: 6px 10px;
+            border-radius: 4px;
+            color: @fontColor-l-4;
+            background: @fontColor-l-2;
+          }
+
+          img {
+            max-height: 80vh;
+            width: auto;
+            max-width: 100%;
+            margin: 10px 0;
+            border-radius: 4px;
+            box-shadow: 1px 3px 9px #999,
+              -1px -3px 9px #ffffff;
+          }
+
+          ul, ol {
+            padding: 10px 10px 10px 34px;
+
+            li {
+              list-style: inside disc;
+              line-height: 1.6;
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+
+    .blog-detail-anchor {
+
+    }
+  }
+
+  @media @max1068 {
+    & {
+      width: 100%;
+      margin: 0 auto 64px;
+      border-radius: 0;
+
+      .blog-detail-content {
+        border: none !important;
+        padding: 16px !important;
+      }
+    }
+  }
+}
