@@ -7,11 +7,11 @@
             :width= "width"
             :height= "height"
           />
-          <div style="padding: 14px">
-            <slot name="word"></slot>
-            <div class="bottom">
-              <el-button text class="button">Operating</el-button>
-            </div>
+          <div class="topic">
+                <p><slot name="btnName">主题</slot></p>
+          </div>
+          <div class="bottom">
+                <p><slot name="word"></slot></p>
           </div>
         </el-card>
   </template>
@@ -31,17 +31,23 @@
     color: #999;
   }
   
-  .bottom {
-    margin-top: 13px;
+  .topic {
+    margin-top: 0px;
+    margin-bottom: 0px;
     line-height: 12px;
-    display: flex;
-    justify-content: space-between;
+    padding: 0px;
+    display:flex;
     align-items: center;
+    justify-content: center;
   }
-  
-  .button {
-    padding: 0;
-    min-height: auto;
+
+  .bottom {
+    margin-top: 0px;
+    line-height: 12px;
+    padding: 0px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .image {
