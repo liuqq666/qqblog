@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Photography from '../views/Photography.vue'
+import NotFound from '../views/404.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
@@ -9,6 +10,7 @@ const routes = [
   { path: '/literature', name: 'Literature', component: 'Literature' },
   { path: '/exploration', name: 'Exploration', component: 'Exploration' },
   { path: '/about', name: 'About', component: 'About' },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
 const router = createRouter({

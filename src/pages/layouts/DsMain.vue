@@ -2,16 +2,18 @@
   博客默认中间关于
 -->
 <template>
-    <el-main>
+  <div>
+    <el-main style="height: 100%;">
         <el-container>
-        <el-aside width="200px"></el-aside>
-        <el-main>       
+        <el-aside width="15%"></el-aside>
+        <el-main style="height: 100%;">       
             <slot>
             </slot>
         </el-main>
-        <el-aside width="200px"></el-aside>
+        <el-aside width="15%"></el-aside>
       </el-container>
   </el-main>
+</div>
   </template>
   
   <script setup>
