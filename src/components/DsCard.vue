@@ -1,5 +1,5 @@
 <template>
-        <el-card :body-style="{ padding: '0px' }">
+        <el-card :body-style="{ padding: '0px' }" @click="goTo(link)">
           <img
             :src= src
             class="image"
@@ -19,11 +19,24 @@
  
     <script setup>
     import { defineProps } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
     const props = defineProps({
     src:String,
+    link:{
+      type:String,
+      default:'/'
+    }
   })
+  //图片的宽高
     const width = "200";
     const height = "300";
+    
+    const goTo = (link) => {
+      router.push(link)
+    }
+
   </script>
   <style>
   .time {

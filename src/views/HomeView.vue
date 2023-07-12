@@ -5,7 +5,7 @@
       <DsMain>
         <el-row gutter="20">
           <el-col :span="12">
-          <DsCard :src="imgArr[0]">
+          <DsCard :src="imgArr[0]" link="/Photography">
             <template #word>科技的力量在于将想象变为现实</template>
             <template #btnName>技术</template>
           </DsCard>
