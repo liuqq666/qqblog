@@ -1,23 +1,18 @@
 <template>
-    <div class="common-layout">
-      <el-container direction="vertical">
-        <DsHeader>Header</DsHeader>
-        <DsMain>
+    <page-all>
+      <template #main>
           <ul ref="ViewerDom">
             <li v-for="(img, index) in imgArr" :key="index">
               <img :src="img" />
             </li>
           </ul>
-        </DsMain>
-        <DsFooter>Footer</DsFooter>
-      </el-container>
-    </div>
+        </template>
+    </page-all>
+  
   </template>
   
   <script setup>
-  import DsHeader from '@/pages/layouts/DsHeader.vue'
-  import DsFooter from '@/pages/layouts/DsFooter.vue'
-  import DsMain from '@/pages/layouts/DsMain.vue'
+  import PageAll from '@/pages/PageAll.vue';
   import Viewer from 'viewerjs'
   import 'viewerjs/dist/viewer.css'
   import { ref, onMounted } from 'vue'

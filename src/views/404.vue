@@ -1,20 +1,14 @@
 <template>
-  <div class="common-layout">
-    <el-container direction="vertical">
-      <DsHeader>Header</DsHeader>
-      <DsMain>
+  <page-all>
+  <template #main>
         <img src="../../public/static/img/404.png"  class="full-width-image" alt="notfound">
-      </DsMain>
-      <DsFooter>Footer</DsFooter>
-    </el-container>
-  </div>
+  </template>
+  </page-all>
 </template>
 
 <script setup>
 // @ is an alias to /src
-import DsHeader from '@/pages/layouts/DsHeader.vue'
-import DsFooter from '@/pages/layouts/DsFooter.vue'
-import DsMain from '@/pages/layouts/DsMain.vue'
+import PageAll from '@/pages/PageAll.vue';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router'
 

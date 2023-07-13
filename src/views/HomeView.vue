@@ -1,8 +1,6 @@
 <template>
-  <div class="common-layout">
-    <el-container direction="vertical">
-      <DsHeader>Header</DsHeader>
-      <DsMain>
+  <page-all>
+    <template #main>
         <el-row gutter="20">
           <el-col :span="12">
           <DsCard :src="imgArr[0]" link="/Photography">
@@ -28,17 +26,13 @@
             <template #btnName>探索</template></DsCard>
           </el-col>
         </el-row>
-      </DsMain>
-      <DsFooter>Footer</DsFooter>
-    </el-container>
-  </div>
+      </template>
+      </page-all>
 </template>
 
 <script setup>
 // @ is an alias to /src
-import DsHeader from '@/pages/layouts/DsHeader.vue'
-import DsFooter from '@/pages/layouts/DsFooter.vue'
-import DsMain from '@/pages/layouts/DsMain.vue'
+import PageAll from '@/pages/PageAll.vue';
 import DsCard from '@/components/DsCard.vue'
 
   const imgArr = ['/static/img/jishu.jpg','/static/img/sheyin.jpg',
