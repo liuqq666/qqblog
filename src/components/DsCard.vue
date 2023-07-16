@@ -22,7 +22,7 @@
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
-    const props = defineProps({
+    defineProps({
     src:String,
     link:{
       type:String,

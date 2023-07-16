@@ -1,5 +1,8 @@
-
-
+## project
+项目：个人博客
+技术栈：vue3组件式 + elementPlus + Express + MongoDB + vuecli
+地址：上线中...
+模块：主页 技术 摄影 文学 探索 关于
 ## Project setup
 ```
 npm install
@@ -20,5 +23,6 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+更新日志：
+新增关于页面 over
+todolist：
