@@ -6,6 +6,7 @@
               <img :src="img" />
             </li>
           </ul>
+          ...
         </template>
     </page-all>
   
@@ -15,19 +16,31 @@
   import PageAll from '@/pages/PageAll.vue';
   import Viewer from 'viewerjs'
   import 'viewerjs/dist/viewer.css'
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted, onBeforeMount} from 'vue'
+  import request from '../api/request'
+  import { ElMessage } from 'element-plus';
   
-  const imgArr = [
-    '/static/img/jishu.jpg',
-    '/static/img/sheyin.jpg',
-    '/static/img/wenxue.jpg',
-    '/static/img/shiyanshi.jpg'
-  ];
+  const imgArr = ref([]);
+  //从mongo获取 图片列表
+  const getImageArr = async()=>{
+    try{ 
+    const res = await request.getImages(1,10);
+    const result = res.data.map((v)=>{
+      return `data:image/jepg;base64,${v}`;
+    })
+    console.log("图片数组为:",result);
+    imgArr.value = result;
+    }catch(e){
+      ElMessage.error(e);
+    }
+
+  }
   // 获取 dom对象
   const ViewerDom = ref(null);
   // 定义初始化方法
   onMounted(() => {
     openViewer(ViewerDom.value);
+    getImageArr();
   })
   const openViewer = (dom) => {
     const viewer = new Viewer(dom, {
@@ -47,5 +60,8 @@
   </script>
   
   <style lang="less">
-  // 样式省略
+  ul {
+      list-style: none; /* Remove default bullet point */
+      padding-left: 0; /* Remove default left padding */
+    }
   </style>

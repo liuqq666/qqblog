@@ -6,7 +6,7 @@
     <el-divider border-style="double" />
     <el-footer>
       <div class="flex justify-space-between mb-4 flex-wrap gap-4">
-      <el-button text="true"  class="el-button">
+      <el-button text="true"  class="el-button" @click="navigateToAbout">
       关于
       </el-button>  
       </div>
@@ -16,14 +16,12 @@
     </el-footer>
   </template>
   
-  <script>
-  
-  export default {
-    setup () {
-      return {
-      }
+  <script setup>
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
+  function navigateToAbout() {  
+      router.push('/about');
     }
-  }
   </script>
   
   <style lang="less">

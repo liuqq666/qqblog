@@ -21,7 +21,6 @@
   
   <script setup>
   import { UploadFilled } from '@element-plus/icons-vue'
-  import { ElMessage  } from 'element-plus';
 
   const uploadUrl = 'http://127.0.0.1:3001/uploadImg';
   const uploadHeaders = {
@@ -34,13 +33,5 @@
     // Message(response, file, fileList);
   };
   
-  const beforeUpload = (file) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-        ElMessage.error('Only JPG/PNG files are allowed!');
-    }
-  
-    return isJpgOrPng;
-  };
   </script>
   

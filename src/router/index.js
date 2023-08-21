@@ -7,7 +7,7 @@ import Literature from '../views/Literature.vue'
 import Exploration from '../views/Exploration.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
-import Upload from '../views/Upload.vue'
+import Upload from '../views/UploadImg.vue'
 import test from '../components/test.vue'
 
 const routes = [
@@ -19,7 +19,7 @@ const routes = [
   { path: '/about', name: 'About', component: About },
   { path: '/test', name: 'Contact', component: test },
   { path: '/login', name: 'Login', component: Login },
-  { path: '/upload', name: 'Upload', component: Upload },
+  { path: '/uploadImg', name: 'Upload', component: Upload },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
