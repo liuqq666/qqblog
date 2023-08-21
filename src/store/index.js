@@ -2,14 +2,14 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    isUser: false
+    IsUser:false
   },
   getters: {
   },
   mutations: {
     changeIsUser(state,value){
-      state.isUser = value
-    }
+      state.IsUser = value
+    },
   },
   actions: {
   },

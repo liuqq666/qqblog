@@ -13,7 +13,7 @@
       </div>
       <template #tip>
         <div class="el-upload__tip">
-          jpg/png files with a size less than 500kb
+          单次上传图片
         </div>
       </template>
     </el-upload>
@@ -23,30 +23,24 @@
   import { UploadFilled } from '@element-plus/icons-vue'
   import { ElMessage  } from 'element-plus';
 
-  const uploadUrl = 'http://127.0.0.1:3001/login';
+  const uploadUrl = 'http://127.0.0.1:3001/uploadImg';
   const uploadHeaders = {
-    // Add any headers required for authentication or other purposes
+    //在这里加请求头
     // For example: { Authorization: 'Bearer your_token' }
   };
   
   const handleUploadSuccess = (response, file, fileList) => {
     // Handle upload success, if needed
-    Message(response, file, fileList);
+    // Message(response, file, fileList);
   };
   
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    const isLt500K = file.size / 1024 < 500;
-  
     if (!isJpgOrPng) {
         ElMessage.error('Only JPG/PNG files are allowed!');
     }
   
-    if (!isLt500K) {
-        ElMessage.error('Image must be smaller than 500KB!');
-    }
-  
-    return isJpgOrPng && isLt500K;
+    return isJpgOrPng;
   };
   </script>
   

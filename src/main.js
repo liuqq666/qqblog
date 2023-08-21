@@ -26,9 +26,13 @@ app.use(router)
 app.use(ElementPlus)
 app.use(VMdPreview)
 
+//获取vuex  
+export const { state, commit } = store;
 //全局注册element按钮
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
   }
 
 app.mount('#app')
+
+export default app
