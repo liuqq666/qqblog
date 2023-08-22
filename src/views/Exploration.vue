@@ -10,10 +10,10 @@
   // @ is an alias to /src
   import PageAll from '@/pages/PageAll.vue';
   import WordCard from '@/components/WordCard.vue';
-  
-  const editedTime =  "today"
-  const title = "hello"
-  const tagArr = ['lqq','zxl']
+
+  const editedTime =  "not today！"
+  const title = "上线中，敬请期待"
+  const tagArr = ['chatgpt','css展示平台','dtncms','...']
   </script>
   <style lang="less">
   </style>
