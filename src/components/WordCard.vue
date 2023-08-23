@@ -33,7 +33,7 @@
 
   </script>
   
-  <style>
+  <style lang="less" scoped>
   .card-header {
     display: flex;
     justify-content: space-between;
@@ -53,6 +53,9 @@
     width: 60%;
     margin: auto;
     margin-bottom: 20px;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
 .tag-item {

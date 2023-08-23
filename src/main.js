@@ -13,6 +13,7 @@ import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 // highlightjs
 import hljs from 'highlight.js';
+import './assets/reset.css';
 
 //注册markdown预览器
 VMdPreview.use(githubTheme, {

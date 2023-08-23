@@ -28,7 +28,7 @@
       <el-menu-item index="5">
          <router-link to="/exploration" >探索</router-link> 
       </el-menu-item>
-      <el-menu-item index="6">
+      <el-menu-item index="6" class="qqqq">
         <router-link to="/about" >关于</router-link> 
       </el-menu-item>
     </div>
@@ -45,21 +45,50 @@
     }
   </script>
   
-  <style lang="less">
+  <style lang="less" scoped>
   .flex-grow {
-  flex-grow: 1;
+  width: 500px;
   display: flex;
-  justify-content: center; /* 水平居中对齐 */
+  justify-content :flex-end; /* 水平居中对齐 */
   align-items: center;
-  }
-  .router-link-active {
-  text-decoration: none;
-  color: #0c64df;
 }
-  a {
-    text-decoration: none;
-    color: #0c64df;
+  .el-menu-item {
+    padding: 5px;
+    margin-right: 50px;
+    &::before{
+      content: "   ";
+    }
+    &::after{
+      content: "     ";
+    }
+  }
+  
+  .is-active{
+    color: #d0ebde;
   }
 
+  a {
+    text-decoration: none;
+    color: #2c7f87;
+    &:hover{
+      color: #000;
+    }
+  }
+  .router-link-active {
+    color: #03c2c2;
+    text-decoration:underline;
+}
+  .el-menu-demo{
+    display: flex;
+    justify-content: space-between
+  }
+  .qqqq{
+    margin-right: 100%;
+  }
+  img{
+    &:hover{
+      cursor: pointer;
+    }
+  }
   </style>
   

@@ -1,7 +1,7 @@
 <template>
     <page-all>
         <template #main>
-    <el-collapse @change="handleChange">
+    <el-collapse @change="handleChange" class="wx">
     <el-collapse-item title="窗子以外 -林徽因" name="1">
       <div class="custom-text">
         <p>话从哪里说起？等到你要说话，什么话都是那样渺茫的找不到个源头。</p>
@@ -114,6 +114,9 @@
       
   </script>
   <style scoped lang="less">
+  .wx{
+    width: 90%;
+  }
   .custom-text {
     text-indent: 2em; /* 首行缩进2字符 */
     text-align: left; 

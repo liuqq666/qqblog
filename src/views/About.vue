@@ -1,6 +1,7 @@
 <template>
     <page-all>
     <template #main>
+      <div class="ab">
         <el-card class="card"><about-header /> </el-card>
         <el-card class="card">
             <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
@@ -30,6 +31,7 @@
             </el-tab-pane>
   </el-tabs>
         </el-card>
+      </div>
     </template>
     </page-all>
   </template>
@@ -70,6 +72,9 @@ const handleClick = (tab, event) => {
       font-size: 24px; 
       margin-top: 20px; 
       margin-bottom: 20px; 
+    }
+    .ab{
+      width: 100%;
     }
   </style>
   

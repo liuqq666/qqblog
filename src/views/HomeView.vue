@@ -1,6 +1,7 @@
 <template>
   <page-all>
     <template #main>
+      <div class="zy">
         <el-row gutter="20">
           <el-col :span="12">
           <DsCard :src="imgArr[0]" link="/technology">
@@ -26,6 +27,7 @@
             <template #btnName>探索</template></DsCard>
           </el-col>
         </el-row>
+      </div>
       </template>
       </page-all>
 </template>
@@ -38,7 +40,7 @@ import DsCard from '@/components/DsCard.vue'
   const imgArr = ['/static/img/jishu.jpg','/static/img/sheyin.jpg',
                   '/static/img/wenxue.jpg','/static/img/shiyanshi.jpg']
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .el-col {
   border-radius: 4px;
 }
@@ -48,5 +50,8 @@ import DsCard from '@/components/DsCard.vue'
 .grid-content {
   border-radius: 4px;
   min-height: 36px;
+}
+.zy{
+  width: 100%;
 }
 </style>

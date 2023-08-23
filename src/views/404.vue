@@ -25,7 +25,7 @@ onMounted(() => {
 })
 
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .el-col {
   border-radius: 4px;
 }

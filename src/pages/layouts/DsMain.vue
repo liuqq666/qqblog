@@ -6,7 +6,7 @@
     <el-main style="height: 100%;">
         <el-container>
         <el-aside width="15%"></el-aside>
-        <el-main style="height: 100%;">       
+        <el-main style="height: 100%; width: 100%;display: flex; align-items: center; justify-content: center;">       
             <slot>
             </slot>
         </el-main>

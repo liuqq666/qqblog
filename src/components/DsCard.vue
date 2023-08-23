@@ -1,5 +1,5 @@
 <template>
-        <el-card :body-style="{ padding: '0px' }" @click="goTo(link)">
+        <el-card class="mycard" :body-style="{ padding: '0px' }" @click="goTo(link)">
           <img
             :src= src
             class="image"
@@ -38,7 +38,7 @@
     }
 
   </script>
-  <style>
+  <style scoped lang="less">
   .time {
     font-size: 12px;
     color: #999;
@@ -66,6 +66,11 @@
   .image {
     width: 100%;
     display: block;
+  }
+  .mycard{
+    &:hover{
+      cursor: pointer;
+    }
   }
   </style>
   

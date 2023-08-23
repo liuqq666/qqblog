@@ -25,7 +25,7 @@
   }
   })
   </script>
-  <style lang="less">
+  <style lang="less" scoped>
   .qqq {
     text-align: left;
   }
