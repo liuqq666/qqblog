@@ -47,7 +47,7 @@ const handleClick = (tab, event) => {
 }
 
   </script>
-  <style scoped>
+  <style scoped lang="less">
   .card {
       margin-bottom: 15px;
   }

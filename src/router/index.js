@@ -7,8 +7,11 @@ import Literature from '../views/Literature.vue'
 import Exploration from '../views/Exploration.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
-import Upload from '../views/UploadImg.vue'
-import test from '../components/test.vue'
+import UploadImg from '../views/UploadImg.vue'
+import UploadArticle from '../views/UploadArticle.vue'
+import ArticleDetail from '../views/ArticleDetail.vue'
+import store from '../store/index'; // 导入Vuex实例
+
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
@@ -17,9 +20,10 @@ const routes = [
   { path: '/literature', name: 'Literature', component: Literature },
   { path: '/exploration', name: 'Exploration', component: Exploration },
   { path: '/about', name: 'About', component: About },
-  { path: '/test', name: 'Contact', component: test },
   { path: '/login', name: 'Login', component: Login },
-  { path: '/uploadImg', name: 'Upload', component: Upload },
+  { path: '/uploadImg', name: 'UploadImg', component: UploadImg},
+  { path: '/uploadArticle', name: 'UploadArticle', component: UploadArticle },
+  { path: '/article/:uid', name: 'Article', component: ArticleDetail },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
@@ -27,5 +31,18 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+// router.beforeEach((to, from, next) => { 
+//   // 判断用户是否登录
+//   if (to.meta.requiresAuth) {
+//     // 如果访问需要鉴权的页面并且用户未登录，重定向到登录页面
+//     //在这里鉴权
+
+//     next({ name: 'home' });
+//   } else {
+//     // 其他情况允许继续访问
+//     next();
+//   }
+// });
 
 export default router

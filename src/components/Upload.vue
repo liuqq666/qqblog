@@ -4,8 +4,8 @@
       drag
       :action="uploadUrl"
       :headers="uploadHeaders"
-      :on-success="handleUploadSuccess"
       :before-upload="beforeUpload"
+      :on-error = "errorHandle"
     >
       <el-icon class="el-icon--upload"><upload-filled /></el-icon>
       <div class="el-upload__text">
@@ -21,17 +21,12 @@
   
   <script setup>
   import { UploadFilled } from '@element-plus/icons-vue'
+  import { ElMessage } from 'element-plus';
 
   const uploadUrl = 'http://127.0.0.1:3001/uploadImg';
-  const uploadHeaders = {
-    //在这里加请求头
-    // For example: { Authorization: 'Bearer your_token' }
-  };
-  
-  const handleUploadSuccess = (response, file, fileList) => {
-    // Handle upload success, if needed
-    // Message(response, file, fileList);
-  };
+  const errorHandle = (error, uploadFile, uploadFiles) => {
+    ElMessage.error(error.message)
+  }
   
   </script>
   

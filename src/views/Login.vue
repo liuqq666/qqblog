@@ -27,23 +27,22 @@
   </template>
   
   <script setup>
-    import axios from 'axios'
+    import request from '@/api/request';
     import { useRouter } from 'vue-router';
+    import { ElMessage } from 'element-plus';
 
     const router = useRouter();
     let username = ''
     let password = ''
-    const handleSubmit = () => {
-      axios.post('http://127.0.0.1:3001/api/login',{
-        username:username,
-        password:password
-      }).then(res=>{
-        if( res.status === 200 ){
-          router.push('/')
-        }
-      }).catch(err=>{
-        console.log(err)
-      })
+    const handleSubmit = async () => {
+      const response = await request.login(username,password);
+      if(response.data.success){
+        ElMessage.success("登陆成功")
+        router.push('/')
+      }else{
+        ElMessage.error("登陆失败"+response.data.message)
+        router.push('/login')
+      }
     } 
    
   </script>

@@ -16,7 +16,7 @@
   import PageAll from '@/pages/PageAll.vue';
   import Viewer from 'viewerjs'
   import 'viewerjs/dist/viewer.css'
-  import { ref, onMounted, onBeforeMount} from 'vue'
+  import { ref, onMounted} from 'vue'
   import request from '../api/request'
   import { ElMessage } from 'element-plus';
   

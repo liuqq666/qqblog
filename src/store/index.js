@@ -8,7 +8,7 @@ export default createStore({
   },
   mutations: {
     changeIsUser(state,value){
-      state.IsUser = value
+      state.IsUser = value;
     },
   },
   actions: {

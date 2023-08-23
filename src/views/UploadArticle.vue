@@ -37,11 +37,14 @@
             <el-checkbox label="其他" name="type" />
           </el-checkbox-group>
         </el-form-item>
-        <el-form-item label="语雀namespace" prop="namespace">
-          <el-input v-model="ruleForm.namespace" type="textarea" />
-        </el-form-item>
-        <el-form-item label="语雀slug" prop="slug">
-          <el-input v-model="ruleForm.slug" type="textarea" />
+        <el-form-item label="上传Markdown">
+          <el-upload
+            class="upload-demo"
+            :auto-upload="false"
+            :on-change="handleChange"
+          >
+            <el-button size="small" type="primary">点击上传markdown</el-button>
+          </el-upload>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm(ruleFormRef)">
@@ -54,20 +57,20 @@
     </page-all>
   </template>
   
-  <script setup>
-  // @ is an alias to /src
-  import PageAll from '@/pages/PageAll.vue';
-  import { reactive, ref } from 'vue'
+<script setup>
+import request from '@/api/request';
+import PageAll from '@/pages/PageAll.vue';
+import { ElMessage } from 'element-plus';
+import { reactive, ref } from 'vue'
 
 const formSize = ref('default')
 const ruleFormRef = ref({})
 const ruleForm = reactive({
-  name: 'Hello',
+  name: '',
   date: '',
-  delivery: false,
   type: [],
-  namespace: '',
-  slug: '',
+  markdown: '',
+  uid: ''
 })
 
 
@@ -80,6 +83,23 @@ const submitForm = async (formEl) => {
       console.log('error submit!', fields)
     }
   })
+  try{
+      await request.uploadArticle(ruleForm);
+      ElMessage.success('上传成功');
+  }catch(e){
+    ElMessage.error("未登录，无权限");
+  }
+}
+
+const handleChange = (file, fileList) => {
+  if(fileList.length > 0){
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      ruleForm.markdown = event.target.result; // 存储文件内容
+    };
+    reader.readAsText(file.raw)
+    ruleForm.uid = file.uid;
+  }
 }
 
 const resetForm = (formEl) => {

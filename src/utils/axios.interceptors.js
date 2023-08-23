@@ -1,30 +1,35 @@
+import axios from 'axios';
+import store from '../store/index'; // 导入你的 Vuex Store 实例的路径
 
-import axios from 'axios'
-import { state } from '@/main';
+const axiosInstance = axios.create({
+  baseURL: 'http://127.0.0.1:3001',
+});
 
-axios.interceptors.request.use(function (config) {
-
-    if(state.IsUser){//判断是否本人，不是本人就没必要加token了
-
-    const token = localStorage.getItem("token")
-    config.headers.Authorization = `Bearer ${token}`
+axiosInstance.interceptors.request.use(
+  config => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      store.commit('changeIsUser',true); 
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
     return config;
-    }
-  }, function (error) {
+  },
+  error => {
     return Promise.reject(error);
-  });
+  }
+);
 
-axios.interceptors.response.use(function (response) {
-    if(state.IsUser){
-       const {authorization } = response.headers
-    authorization && localStorage.setItem("token",authorization)
-    return response; 
+axiosInstance.interceptors.response.use(
+  response => {
+    const newToken = response.data.token;
+    if (newToken) {
+      localStorage.setItem('token', newToken);
     }
-  }, function (error) {
-    const {status} = error.response
-    if(status===401){
-        localStorage.removeItem("token")
-        window.location.href="#/login"
-    }
+    return response;
+  },
+  error => {
     return Promise.reject(error);
-  });
+  }
+);
+
+export default axiosInstance

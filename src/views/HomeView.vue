@@ -21,7 +21,7 @@
             <template #btnName>文学</template></DsCard>
           </el-col>
           <el-col :span="12">
-          <DsCard :src="imgArr[3]" link="/explore">
+          <DsCard :src="imgArr[3]" link="/exploration">
             <template #word>勇往直前，才能发现新的边界</template>
             <template #btnName>探索</template></DsCard>
           </el-col>

@@ -52,6 +52,7 @@
   .box-card {
     width: 60%;
     margin: auto;
+    margin-bottom: 20px;
   }
 
 .tag-item {

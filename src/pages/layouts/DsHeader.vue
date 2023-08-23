@@ -13,7 +13,7 @@
   >
     <img src="../../../public/static/img/logo.png" width="150" height="70" @click="goTo"/>
     <div class="flex-grow">
-      <el-menu-item index="1" class="menu-item">
+      <el-menu-item index="1">
          <router-link to="/">主页</router-link>
       </el-menu-item> 
       <el-menu-item index="2">
@@ -51,9 +51,6 @@
   display: flex;
   justify-content: center; /* 水平居中对齐 */
   align-items: center;
-  }
-  .menu-item {
-    font-size: 50px;
   }
   .router-link-active {
   text-decoration: none;
