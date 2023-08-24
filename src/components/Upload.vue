@@ -23,9 +23,14 @@
   import { UploadFilled } from '@element-plus/icons-vue'
   import { ElMessage } from 'element-plus';
 
-  const uploadUrl = 'http://127.0.0.1:3001/uploadImg';
+  const uploadUrl = 'api/uploadImg';
   const errorHandle = (error, uploadFile, uploadFiles) => {
     ElMessage.error(error.message)
+  }
+  const token = localStorage.getItem('token');
+
+  const uploadHeaders = {
+    Authorization: `Bearer ${token}`
   }
   
   </script>

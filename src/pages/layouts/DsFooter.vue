@@ -28,6 +28,12 @@
   .el-button {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex{
+    display: flex;
+    justify-content: center;
   }
 
   .footer {

@@ -1,9 +1,7 @@
 import axios from 'axios';
 import store from '../store/index'; // 导入你的 Vuex Store 实例的路径
 
-const axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:3001',
-});
+const axiosInstance = axios.create();
 
 axiosInstance.interceptors.request.use(
   config => {
