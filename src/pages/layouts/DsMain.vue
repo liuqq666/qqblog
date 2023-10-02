@@ -2,7 +2,6 @@
   博客默认中间关于
 -->
 <template>
-  <div>
     <el-main style="height: 100%;">
         <el-container>
         <el-aside width="15%"></el-aside>
@@ -13,7 +12,6 @@
         <el-aside width="15%"></el-aside>
       </el-container>
   </el-main>
-</div>
   </template>
   
   <script setup>

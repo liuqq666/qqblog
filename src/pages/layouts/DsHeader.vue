@@ -3,7 +3,7 @@
 -->
 
   <template>
-    <el-header>
+    <el-header class="blog-header">
     <el-menu
     :default-active="activeIndex"
     class="el-menu-demo"
@@ -28,10 +28,16 @@
       <el-menu-item index="5">
          <router-link to="/exploration" >探索</router-link> 
       </el-menu-item>
-      <el-menu-item index="6" class="qqqq">
+      <el-menu-item index="6"  class="qqqq">
         <router-link to="/about" >关于</router-link> 
       </el-menu-item>
     </div>
+    <el-sub-menu collapse-close-icon index="7" class="q">
+      <template #title>...</template>
+      <el-menu-item  index="7-1"><router-link to="/login" >管理员登录</router-link> </el-menu-item>
+      <el-menu-item  index="7-2"><router-link to="/uploadImg" >上传照片</router-link> </el-menu-item>
+      <el-menu-item  index="7-3"><router-link to="/uploadArticle" >上传文章</router-link></el-menu-item>
+      </el-sub-menu>
   </el-menu>
     </el-header>
   </template>
@@ -62,6 +68,16 @@
       content: "     ";
     }
   }
+  .el-sub-menu{
+    padding: 5px;
+    margin-right: 50px;
+    &::before{
+      content: "   ";
+    }
+    &::after{
+      content: "     ";
+    }
+  }
   
   .is-active{
     color: #d0ebde;
@@ -83,12 +99,20 @@
     justify-content: space-between
   }
   .qqqq{
-    margin-right: 100%;
+    margin-right: 100px;
   }
   img{
     &:hover{
       cursor: pointer;
     }
+  }
+  .blog-header{
+    position: relative;
+        width: 100%;
+        height: 60px;   
+  }
+  .q{
+    left: 0;
   }
   </style>
   

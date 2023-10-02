@@ -10,7 +10,6 @@ import Login from '../views/Login.vue'
 import UploadImg from '../views/UploadImg.vue'
 import UploadArticle from '../views/UploadArticle.vue'
 import ArticleDetail from '../views/ArticleDetail.vue'
-import store from '../store/index'; // 导入Vuex实例
 
 
 const routes = [
@@ -31,6 +30,11 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+//下面代码解决了重复点击报错问题
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 // router.beforeEach((to, from, next) => { 
 //   // 判断用户是否登录
